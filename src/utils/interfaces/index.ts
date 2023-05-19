@@ -1,0 +1,1 @@
+export {default as IController} from './controller.interface'
