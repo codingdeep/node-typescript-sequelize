@@ -1,14 +1,14 @@
 import IController from "@/utils/interfaces/controller.interface";
 import {NextFunction, Router, Request, Response} from "express";
 import {ResponseWrapper} from "@/utils/response/response.wrapper";
-import UserService from "@/resources/user/user.service";
+import UserService from "../service/user.service";
 import ResourceNotfoundException from "@/utils/exception/resource.notfound.exception";
-import RoleModel from "../../models/role.model";
+import RoleModel from "../../role/domain/role.model";
 import HttpException from "@/utils/exception/http.exception";
-import userValidation, {UserInputType} from "@/resources/user/user.validation";
+import userValidation, {UserInputType} from "../user.validation";
 import validateResource from "@/middlewares/validate.resource";
 import ResourceDuplicateException from "@/utils/exception/resource.duplicate.exception";
-import UserModel from "../../models/user.model";
+import UserModel from "../domain/user.model";
 import passport from "passport";
 import AccessCheckUtil from "@/utils/access.check.util";
 
@@ -38,7 +38,7 @@ class UserController implements IController {
         const user = await this.UserService.findByEmail(req.body.email);
         if (user) {
             next(new ResourceDuplicateException('User', 'username', req.body.email, 409));
-            return;
+            next()
         }
         //if not duplicate
         try {

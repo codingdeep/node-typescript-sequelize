@@ -1,7 +1,7 @@
 import {Strategy as JwtStrategy, ExtractJwt} from 'passport-jwt';
-import UserModel from "../models/user.model";
+import UserModel from "../modules/users/user/domain/user.model";
 import {NextFunction} from "express";
-import RoleModel from "../models/role.model";
+import RoleModel from "../modules/users/role/domain/role.model";
 
 const privateKey: any = process.env.PRIVATE_KEY;
 

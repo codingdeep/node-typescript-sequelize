@@ -1,6 +1,6 @@
 import {Router, Response, Request, NextFunction} from "express";
-import authSchema, {AuthInputType} from "./auth.validation";
-import AuthService from "./auth.service";
+import authSchema, {AuthInputType} from "../auth.validation";
+import AuthService from "../service/auth.service";
 import {JWTUtil} from "@/utils//jwt.util";
 import HttpException from "@/utils/exception/http.exception";
 import {IController} from "@/utils/interfaces";

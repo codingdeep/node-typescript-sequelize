@@ -1,5 +1,5 @@
 import {DataType, Model, Table, Column, BelongsToMany, BeforeCreate} from "sequelize-typescript";
-import RoleModel from "./role.model";
+import RoleModel from "../../role/domain/role.model";
 import UserRoleModel from "./user.role.model";
 import bcrypt from "bcrypt";
 

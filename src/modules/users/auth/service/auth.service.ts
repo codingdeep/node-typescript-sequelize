@@ -1,6 +1,6 @@
 import {omit} from "lodash";
-import UserModel from "../../models/user.model";
-import RoleModel from "../../models/role.model";
+import UserModel from "../../user/domain/user.model";
+import RoleModel from "../../role/domain/role.model";
 
 class AuthService {
     // public async login(input: AuthInputType["body"]): Promise<any> {

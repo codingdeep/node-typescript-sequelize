@@ -1,8 +1,8 @@
-import UserModel, {UserInput} from "../../models/user.model";
-import DbConnection from "../../config/db/db.connection";
-import RoleModel from "../../models/role.model";
-import UserRoleModel from "../../models/user.role.model";
-import roleModel from "../../models/role.model";
+import UserModel, {UserInput} from "../domain/user.model";
+import DbConnection from "../../../../config/db/db.connection";
+import RoleModel from "../../role/domain/role.model";
+import UserRoleModel from "../domain/user.role.model";
+import roleModel from "../../role/domain/role.model";
 import {omit} from "lodash";
 
 class UserService extends Error {
@@ -50,7 +50,9 @@ class UserService extends Error {
                 include: [{model: RoleModel as any, as: 'roles'}],
                 attributes: {
                     exclude: ['password']
-                }
+                },
+                offset: 0,
+                limit: 2
             })
         } catch (e: any) {
             throw new Error(e)
